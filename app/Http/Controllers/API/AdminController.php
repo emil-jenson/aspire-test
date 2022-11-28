@@ -53,9 +53,10 @@ class AdminController extends Controller
     }
 
     /**
-     * Public user/customer loan requests
+     * Approve or reject loan
      *    
-     * @param status_id
+     * @param id
+     * @param status
      * @return Status
      * @return message
      * @return Loan request
@@ -72,8 +73,8 @@ class AdminController extends Controller
 
             $loanRqst = UserLoanRequest::find($request->id);
 
-            if (!empty($loanRqst)) {               
-                
+            if (!empty($loanRqst)) {
+
                 $loanRqst->status = $request->status;
                 $loanRqst->save();
 
